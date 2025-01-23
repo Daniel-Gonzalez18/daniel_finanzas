@@ -17,7 +17,7 @@
             <tr class="bg-gray-300 border-b dark:bg-gray-300 dark:border-gray-700">
                 @endif
                 @foreach ($row as $cell)
-                @if ($cell==$row[0])
+                @if ($loop->first)
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     {{$cell}}
                 </th>
