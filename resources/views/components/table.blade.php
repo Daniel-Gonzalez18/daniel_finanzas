@@ -10,11 +10,11 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($tableData['data'] as $index=>$row)
-            @if($index%2===0)
+            @foreach ($tableData['data'] as $row)
+            @if($loop->even)
             <tr class="bg-gray-800 border-b dark:bg-gray-800 dark:border-gray-700">
                 @else
-            <tr class="bg-gray-300 border-b dark:bg-gray-800 dark:border-gray-700">
+            <tr class="bg-gray-300 border-b dark:bg-gray-300 dark:border-gray-700">
                 @endif
                 @foreach ($row as $cell)
                 @if ($cell==$row[0])
