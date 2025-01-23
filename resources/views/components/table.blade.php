@@ -12,7 +12,7 @@
         <tbody>
             @foreach ($tableData['data'] as $row)
             @if($loop->even)
-            <tr class="bg-gray-800 border-b dark:bg-gray-800 dark:border-gray-700">
+            <tr class="bg-gray-500 border-b dark:bg-gray-500 dark:border-gray-700">
                 @else
             <tr class="bg-gray-300 border-b dark:bg-gray-300 dark:border-gray-700">
                 @endif
