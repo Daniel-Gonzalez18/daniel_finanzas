@@ -13,18 +13,19 @@ class IncomeController extends Controller
     {
         $tableData = [
             'heading' => [
-                'date','category','amount','nuevaCategoria'
+                'date',
+                'category',
+                'amount'
             ],
             'data' => [
-                ['12/12/2012','salary','2500'],
-                ['12/01/2013','salary','2500'],
-                ['12/02/2013','salary','2550']
+                ['12/12/2012', 'salary', '2500'],
+                ['12/01/2013', 'salary', '2500'],
+                ['12/02/2013', 'salary', '2550']
             ]
 
-        ]; 
+        ];
         //Aquí la lógica de negocio para el index
-        return view('income.index',['title' => 'My incomes','tableData' => $tableData]);
-        
+        return view('income.index', ['title' => 'My incomes', 'tableData' => $tableData]);
     }
 
     /**
@@ -68,7 +69,7 @@ class IncomeController extends Controller
     public function update(Request $request, string $id)
     {
         //
-        
+
     }
 
     /**
