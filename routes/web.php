@@ -9,3 +9,5 @@ Route::get('/', function () {
 
 //Route::resource('incomes', IncomeController::class);
 Route::get('/incomes', [IncomeController::class, 'index'])->name('incomes.index');
+
+Route::get('/addincomes', [IncomeController::class, 'index'])->name('addincomes.index');
