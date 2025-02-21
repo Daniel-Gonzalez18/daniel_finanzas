@@ -1,4 +1,5 @@
 {{-- <!-- <div>
+<!-- <div>
     @if($attributes->has('type'))
     <input type="{{$attributes['type']}}" name="{{$attributes['name']}}" class="{{$attributes['class']}}" value="{{$attributes['value']}}" />
     @endif

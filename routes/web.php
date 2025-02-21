@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IncomeController;
 use App\Http\Controllers\SpendingController;
-use App\Models\Outcome;
 
 Route::get('/', function () {
     return view('welcome');

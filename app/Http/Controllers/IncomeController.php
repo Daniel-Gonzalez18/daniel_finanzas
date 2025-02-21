@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Income;
 use Attribute;
+use App\Models\Income;
+use Attribute;
 use Illuminate\Http\Request;
 
 class IncomeController extends Controller
@@ -15,7 +17,6 @@ class IncomeController extends Controller
     {
 
         $array = Income::all();
-
         $tableData = [
             'heading' => [
                 'date',
