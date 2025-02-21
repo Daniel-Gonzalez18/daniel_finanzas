@@ -2,29 +2,29 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Income;
-use Attribute;
-use Illuminate\Http\Request;
 
-class IncomeController extends Controller
+use App\Models\Outcome;
+use Attribute;
+use Illuminate\Http\Request;            
+class OutcomeController extends Controller
 {
-    /**
+     /**
      * Display a listing of the resource.
      */
     public function index()
     {
         $data=[];
-        $array = Income::all();
+        $array = Outcome::all();
         foreach ($array as $value) {
             $arrayAuxiliar=[$value['id'],$value['date'],$value['amount'],$value['category']];
             array_push($data,$arrayAuxiliar);
         }
-        //dd($array[0]['id']);
+        dump($array);
         $tableData = [
              'heading' => [
                 'id',
                  'date',
-                 'amount',
+                 'purchase',
                  'category'
              ],
              'data' => $data
