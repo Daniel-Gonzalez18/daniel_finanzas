@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Outcome;
+use App\Models\Spending;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -16,7 +17,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             IncomeSeeder::class,
-            OutcomeSeeder::class
+            SpendingSeeder::class
         ]);
         // User::factory(10)->create();
 

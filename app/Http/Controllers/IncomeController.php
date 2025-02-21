@@ -13,25 +13,28 @@ class IncomeController extends Controller
      */
     public function index()
     {
-        $data=[];
+
         $array = Income::all();
-        foreach ($array as $value) {
-            $arrayAuxiliar=[$value['id'],$value['date'],$value['amount'],$value['category']];
-            array_push($data,$arrayAuxiliar);
-        }
-        //dd($array[0]['id']);
+
         $tableData = [
-             'heading' => [
-                'id',
-                 'date',
-                 'amount',
-                 'category'
-             ],
-             'data' => $data
-         ];
-         dump($tableData);
+            'heading' => [
+                'date',
+                'amount',
+                'category',
+                'actions'
+            ],
+            'data' => []
+        ];
+        foreach ($array as $data) {
+            $tableData['data'][] = [
+                'id' => $data['id'],
+                'date' => $data['date'],
+                'amount' => $data['amount'],
+                'category' => $data['category'],
+            ];
+        }
         //Aquí la lógica de negocio para el index
-        return view('income.index', ['title' => 'My incomes', 'tableData' => $tableData]);
+        return view('incomes.index', ['title' => 'My incomes', 'tableData' => $tableData]);
     }
 
     /**
@@ -40,7 +43,7 @@ class IncomeController extends Controller
     public function create()
     {
         //
-        return '<p>Esta es la página del create de incomes</p>';
+        return view('incomes.create', ['title' => 'Add incomes']);
     }
 
     /**
@@ -48,7 +51,12 @@ class IncomeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $income = new Income;
+        $income->date = $request->input('date');
+        $income->category = $request->input('category');
+        $income->amount = $request->input('amount');
+        $income->save();
+        return redirect(route('incomes.index'));
     }
 
     /**
@@ -57,7 +65,10 @@ class IncomeController extends Controller
     public function show(string $id)
     {
         //
-        return '<p>Esta es la página del show de incomes</p>';
+        $incomes = Income::all();
+
+        $income = $incomes->findOrFail($id);
+        return view('incomes.show', ['title' => 'Show Income', 'income' => $income]);
     }
 
     /**
@@ -66,16 +77,25 @@ class IncomeController extends Controller
     public function edit(string $id)
     {
         //
-        return '<p>Esta es la página del edit de incomes</p>';
+        $incomes = Income::all();
+
+        $income = $incomes->findOrFail($id);
+        return  view('incomes.edit', ['title' => 'Edit Income', 'income' => $income]);
     }
+
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
     {
-        //
-
+        $incomes= Income::all();
+        $income = $incomes->findOrFail($id);
+        $income->amount=$request->amount;
+        $income->date=$request->date;
+        $income->category=$request->category;
+        $income->save();
+        return redirect(route('incomes.index'));
     }
 
     /**
@@ -84,5 +104,9 @@ class IncomeController extends Controller
     public function destroy(string $id)
     {
         //
+        $incomes = Income::all();
+        $income = $incomes->findOrFail($id);
+        $income->delete();
+        return redirect(route('incomes.index'));
     }
 }

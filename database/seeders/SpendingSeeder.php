@@ -3,16 +3,17 @@
 namespace Database\Seeders;
 
 use App\Models\Outcome;
+use App\Models\Spending;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class OutcomeSeeder extends Seeder
+class SpendingSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Outcome::factory()->count(30)->create();
+        Spending::factory()->count(30)->create();
     }
 }

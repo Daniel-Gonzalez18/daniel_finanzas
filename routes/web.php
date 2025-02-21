@@ -2,15 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IncomeController;
-use App\Http\Controllers\OutcomeController;
+use App\Http\Controllers\SpendingController;
 use App\Models\Outcome;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-//Route::resource('incomes', IncomeController::class);
-Route::get('/incomes', [IncomeController::class, 'index'])->name('incomes.index');
-Route::get('/outcomes', [OutcomeController::class, 'index'])->name('outcomes.index');
+// //Route::resource('incomes', IncomeController::class);
+// Route::get('/incomes', [IncomeController::class, 'index'])->name('incomes.index');
+// Route::get('/spending', [SpendingController::class, 'index'])->name('outcomes.index');
 
-Route::get('/addincomes', [IncomeController::class, 'index'])->name('addincomes.index');
+Route::resource('incomes', IncomeController::class)->parameters(['incomes' => 'id']);
+Route::resource('spending', SpendingController::class)->parameters(['spending' => 'id']);
